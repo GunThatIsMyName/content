@@ -8,7 +8,7 @@ const client = createClient({
 })
 
 const RecipeDetail = ({recipe}) => {
-  console.log(recipe,"recipe");
+  if(!recipe)return <h1>LOADING ....</h1>
 
   const {featuredImage,title,cookingTime,ingredients,method}=recipe.fields
   return (
@@ -99,6 +99,6 @@ export const getStaticPaths = async() =>{
   // paths should return array
   return {
     paths,
-    fallback:false
+    fallback:true
   }
 }
